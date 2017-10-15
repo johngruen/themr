@@ -1,0 +1,38 @@
+{
+  "description": "Theming Demo",
+  "homepage_url": "https://example.com",
+  "manifest_version": 2,
+  "name": "Theming Demo",
+  "permissions": [
+    "theme"
+  ],
+  "browser_action": {
+    "browser_style": true,
+    "default_title": "Themer",
+    "default_icon": {
+        "32": "icon.svg"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  // },
+  // "theme": {
+  //   "images": {
+  //     "headerURL":"pixel.gif"
+  //   },
+  //   "colors": {
+  //      "accentcolor": "#fff",
+  //      "textcolor": "#80CBC4",
+  //      "toolbar":"#f2fafa",
+  //      "toolbar_field": "#ffffff",
+  //      "toolbar_field_text": "#80CBC4"
+  //   }
+  // },
+  "version": "1.0",
+  "applications": {
+    "gecko": {
+      "strict_min_version": "57.0a1"
+    }
+  }
+}
