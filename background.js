@@ -61,8 +61,6 @@ const updateTheme = (colors, theme) => {
   }
 }
 
-
-
 const setTheme = (theme) => {
   browser.theme.update(theme);
 }

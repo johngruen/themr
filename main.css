@@ -58,31 +58,59 @@ label {
   color: #737373;
   font-size: 12px;
   margin-bottom: 2px;
-
 }
+
+.picker-set div {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.picker-set input[type="number"] {
+  -moz-appearance:textfield;
+  appearance: none;
+  appearance: none;
+  background: #ededf0;
+  border: 0;
+  font-size: 16px;
+  height: 32px;
+  padding: 6px;
+  text-align: right;
+  width: 50px;
+}
+
+input[type="number"]:focus, 
+input[type="range"]:focus + input[type="number"] {
+  box-shadow: 0 -2px 0 #00c8d7 inset;
+}
+
 input[type="range"] {
   appearance: none;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
-  height: 20px;
+  display: flex;
+  flex: 1 1;
+  height: 32px;
   margin:0 0 10px;
   outline: 0 !important;
   padding: 0;
-  width: 100%;
 }
 
 input[type=range]::-moz-range-thumb {
   background: transparent;
-  border-radius: 50%;
-  box-shadow: 0 0 0 1px #888, 0 0 0 2px white inset;
+  border-radius: 0
+  box-shadow: 0 0 0 1px white inset;
   cursor: pointer;
-  height: 20px;
+  height: 28px;
   outline: none;
   transition: box-shadow 500ms;
-  width: 20px;
+  width: 6px;
+}
+
+input[type=range]:focus {
+  outline: 01px solid white;
 }
 
 input[type=range]:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 3px #222, 0 0 0 2px white inset;
+  box-shadow: 0 0 0 1px #222, 0 0 0 2px white inset;
 }
 
 input[type=range]::-moz-range-track {
