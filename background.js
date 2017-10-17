@@ -2,7 +2,7 @@ browser.browserAction.onClicked.addListener(() => {
   browser.tabs.create({"url": "/editor.html"});
 });
 
-const colors = [
+const defaultColors = [
   {
     slug: "toolbar",
     name: "Toolbar Color",
@@ -47,6 +47,7 @@ const colors = [
   },
 ]
 
+const colors = [];
 const theme = {
   "images": {
     "headerURL":"pixel.gif"
@@ -54,9 +55,26 @@ const theme = {
   "colors": {}
 };
 
+const getColors = browser.storage.local.get();
+
+getColors.then((store) => {
+  console.log(store);
+  if( typeof store.colors === 'undefined') {
+    for (let color of defaultColors) {
+      colors.push(color);
+    }
+  } else {
+    for(let color of store.colors) {
+      colors.push(color);
+    }
+  }
+  updateTheme(colors, theme);
+  setTheme(theme);
+});
+
 
 const updateTheme = (colors, theme) => {
-  for(color of colors) {
+  for(let color of colors) {
     theme.colors[color.slug] = `hsl(${color.h},${color.s}%,${color.l}%)`;
   }
 }
@@ -64,9 +82,6 @@ const updateTheme = (colors, theme) => {
 const setTheme = (theme) => {
   browser.theme.update(theme);
 }
-
-updateTheme(colors, theme);
-setTheme(theme);
 
 let port;
 
@@ -78,6 +93,7 @@ function connected(p) {
       const {index, target, value} = message;
       colors[index][target] = value;
     }
+    browser.storage.local.set({colors});
     updateTheme(colors, theme);
     setTheme(theme);
   });

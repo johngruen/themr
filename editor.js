@@ -11,7 +11,7 @@ port.onMessage.addListener((message) => {
 // get default colors from background and set original slider values
 const initSliders = (colors) => {
   let i = 0;
-  for (color of colors) {
+  for (let color of colors) {
     console.log(color);
     appColors.push(color);
     $('.picker-sets').append(`
@@ -68,7 +68,6 @@ const bindSliders = () => {
 };
 
 const setColorsOnInputs = (color, $target, source) => {
-  console.log(source);
   const lForH = (color.l > 99) ? 99 : color.l;
   const $h = $target.find('.h');
   const $s = $target.find('.s');

@@ -1,10 +1,11 @@
 {
   "description": "Themr",
-  "homepage_url": "https://example.com",
+  "homepage_url": "https://github.com/johngruen/themr",
   "manifest_version": 2,
   "name": "Themr",
   "permissions": [
-    "theme"
+    "theme",
+    "storage"
   ],
   "browser_action": {
     "browser_style": true,
@@ -20,7 +21,7 @@
     "48":"icon.svg",
     "96": "icon.svg"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "applications": {
     "gecko": {
       "strict_min_version": "57.0a1"
