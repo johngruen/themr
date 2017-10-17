@@ -13,6 +13,7 @@ const initSliders = (colors) => {
   let i = 0;
   for (let color of colors) {
     console.log(color);
+    $('.swatches').append('<div class="swatch"/>');
     appColors.push(color);
     $('.picker-sets').append(`
       <form class='picker-set' id=${color.slug} data-unit=${i}>

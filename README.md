@@ -33,6 +33,16 @@ In order to rectify issue 1 and partly rectify issue 2, I've added a `userChrome
 .tab-icon-sound {
   filter: none !important;
 }
+
+:root:-moz-lwtheme {
+  --tab-line-color: var(--toolbar-color) !important;
+}
+
+.tab-line {
+  height: 2.5px !important;
+  opacity: .7 !important;
+}
+
 ```
 
 If you'd like to create a `userChrome.css` file you can do so by finding your Firefox profile, making a directory called `chrome` and in it, a file called `userChrome.css`. Pasting the above CSS and restarting Firefox will make your world nicer as you demo this webExtension.

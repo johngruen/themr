@@ -35,6 +35,18 @@ h2 {
   margin-top: 0;
 }
 
+.swatches {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: ;
+  justify-content: center;
+  margin: 0 20px 20px;
+}
+
+.swatch {
+  height: 40px;
+}
+
 .picker-sets {
   display: grid;
   grid-gap: 20px;
