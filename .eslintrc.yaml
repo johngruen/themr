@@ -1,0 +1,16 @@
+env:
+  browser: true
+  es6: true
+  jquery: true
+  webextensions: true
+
+extends:
+- eslint:recommended
+- airbnb-base
+
+parserOptions:
+  ecmaVersion: 6
+
+rules:
+  comma-dangle: 0
+  no-restricted-syntax: 0

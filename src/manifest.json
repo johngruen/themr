@@ -11,17 +11,17 @@
     "browser_style": true,
     "default_title": "Themr",
     "default_icon": {
-        "32": "icon.svg"
+        "32": "images/icon.svg"
     }
   },
   "background": {
     "scripts": ["background.js"]
   },
   "icons": {
-    "48":"icon.svg",
-    "96": "icon.svg"
+    "48":"images/icon.svg",
+    "96": "images/icon.svg"
   },
-  "version": "0.0.2",
+  "version": "0.0.3",
   "applications": {
     "gecko": {
       "strict_min_version": "57.0a1"

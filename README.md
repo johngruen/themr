@@ -5,8 +5,16 @@ Theming demo for Firefox Quantum and beyond.
 ## Get Started
 
 1. Clone or download the repository
-2. In Firefox 57 + open `about:debugging` and load the `mainfest.json` file.
+2. In Firefox 57 + open `about:debugging` and load the `src/mainfest.json` file.
 3. Firefox' theme will change and you'll see a paintbrush icon on your toolbar.
+
+## Linting
+
+I use ESLINT in Sublime Text on a per-repo basis per [this article](https://medium.com/@dan_abramov/lint-like-it-s-2015-6987d44c5b48). You can use NPM or Yarn to add dependencies.
+
+## Building
+
+[You'll need web-ext](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext) to get started. Build or run with Yarn: `yarn run build` or `yarn run demo`.
 
 ## Caveats on Theming
 
