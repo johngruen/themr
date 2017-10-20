@@ -9,7 +9,7 @@ const defaultColors = [
     h: 180,
     s: 44,
     l: 96,
-    on: true
+    a: 100
   },
   {
     slug: 'toolbar_text',
@@ -17,7 +17,6 @@ const defaultColors = [
     h: 174,
     s: 42,
     l: 65,
-    on: true
   },
   {
     slug: 'accentcolor',
@@ -39,15 +38,14 @@ const defaultColors = [
     h: 360,
     s: 100,
     l: 100,
-    on: true
+    a: 100
   },
   {
     slug: 'toolbar_field_text',
     name: 'Toolbar Input Text Color',
     h: 174,
     s: 42,
-    l: 65,
-    on: true
+    l: 65
   },
 ];
 
@@ -68,7 +66,11 @@ const theme = {
 
 const updateTheme = () => {
   for (const color of colors) {
-    theme.colors[color.slug] = `hsla(${color.h},${color.s}%,${color.l}% )`;
+    if (typeof color.a === 'undefined') {
+      theme.colors[color.slug] = `hsla(${color.h},${color.s}%,${color.l}% )`;
+    } else {
+      theme.colors[color.slug] = `hsla(${color.h},${color.s}%,${color.l}%, ${color.a * 0.01})`;
+    }
   }
   theme.images.additional_backgrounds[0] = `images/bg-${background}.png`;
 };
@@ -100,7 +102,6 @@ const connected = (p) => {
 const getThemeFromStorage = browser.storage.local.get();
 
 getThemeFromStorage.then((store) => {
-  console.log(store);
   if (typeof store.colors === 'undefined') {
     for (const color of defaultColors) {
       colors.push(color);

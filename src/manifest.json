@@ -21,7 +21,7 @@
     "48":"images/icon.svg",
     "96": "images/icon.svg"
   },
-  "version": "0.0.3",
+  "version": "0.0.4",
   "applications": {
     "gecko": {
       "strict_min_version": "57.0a1"

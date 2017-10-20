@@ -16,6 +16,7 @@ const setHSLSliderSet = (color, $target, source) => {
   const $h = $target.find('.h');
   const $s = $target.find('.s');
   const $l = $target.find('.l');
+  const $a = $target.find('.a');
   $h.css('background-image', `linear-gradient(
     90deg,
     hsl(0, ${color.s}%, ${lForH}%),
@@ -33,7 +34,17 @@ const setHSLSliderSet = (color, $target, source) => {
     90deg,
     hsl(${color.h}, ${color.s}%, 0%),
     hsl(${color.h}, ${color.s}%, 100%)`);
-  $target.css('border-top', `3px solid hsl(${color.h},${color.s}%,${color.l}%)`);
+  $a.css('background-image', `linear-gradient(
+    90deg,
+    white,
+    hsl(${color.h}, ${color.s}%, ${color.l}%)`);
+  if (typeof $a === 'undefined') {
+    const alpha = color.a * 0.01;
+    console.log($a === false)
+    $target.css('border-top', `3px solid hsla(${color.h},${color.s}%,${color.l}%, ${alpha})`);
+  } else {
+    $target.css('border-top', `3px solid hsl(${color.h},${color.s}%,${color.l}%)`);
+  }
   if (source === 'sliders') {
     $target.find('.h-text').val(color.h);
     $target.find('.s-text').val(color.s);
@@ -42,6 +53,7 @@ const setHSLSliderSet = (color, $target, source) => {
     $h.val(color.h);
     $s.val(color.s);
     $l.val(color.l);
+    $a.val(color.a);
   }
 };
 
@@ -82,6 +94,16 @@ const initColors = (colors) => {
   }
 
   $('.picker-set').each(function cb(index) {
+    if (typeof colors[index].a !== 'undefined') {
+      $(this).append(`<label>opacity</label>
+        <div>
+          <input type='range' min='0' max='100' class='a' value=${colors[index].a} tabIndex='-1'/>
+          <input type='number' value=${colors[index].a} class='a-text' maxlength="3" max="100" min="0" />
+        </div>`);
+    }
+  });
+
+  $('.picker-set').each(function cb(index) {
     setHSLSliderSet(appColors[index], $(this));
   });
 };
@@ -97,7 +119,7 @@ const initBackgrounds = (background, color) => {
 };
 
 const bindSliders = () => {
-  $('.h, .s, .l').bind('input', function cb() {
+  $('.h, .s, .l, .a').bind('input', function cb() {
     const index = parseInt($(this).closest('form').attr('data-unit'), 10);
     const target = $(this).attr('class');
     const value = parseInt($(this).val(), 10);
@@ -116,7 +138,7 @@ const bindBackgrounds = () => {
 };
 
 const bindNumInputs = () => {
-  $('.h-text, .s-text, .l-text').on('input', function cb() {
+  $('.h-text, .s-text, .l-text, .a-text').on('input', function cb() {
     const value = parseInt($(this).val(), 10);
     const min = $(this).attr('min');
     const max = $(this).attr('max');
