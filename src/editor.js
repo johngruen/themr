@@ -49,11 +49,16 @@ const setHSLSliderSet = (color, $target, source) => {
     $target.find('.h-text').val(color.h);
     $target.find('.s-text').val(color.s);
     $target.find('.l-text').val(color.l);
+    if (typeof color.a !== 'undefined') {
+      $target.find('.a-text').val(color.a);
+    }
   } else if (source === 'text') {
     $h.val(color.h);
     $s.val(color.s);
     $l.val(color.l);
-    $a.val(color.a);
+    if (typeof color.a !== 'undefined') {
+      $a.val(color.a);
+    }
   }
 };
 
