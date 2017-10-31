@@ -81,12 +81,12 @@ const initColors = (colors) => {
         <label>saturation</label>
         <div>
           <input type='range' min='0' max='100' class='s' value=${color.s} tabIndex='-1'/>
-          <input type='number' value=${color.s} class='s-text' maxlength="3" max="360" min="0" />
+          <input type='number' value=${color.s} class='s-text' maxlength="3" max="100" min="0" />
         </div>
         <label>lightness</label>
         <div>
           <input type='range' min='0' max='100' class='l' value=${color.l} tabIndex='-1'/>
-          <input type='number' value=${color.l} class='l-text' maxlength="3" max="360" min="0" />
+          <input type='number' value=${color.l} class='l-text' maxlength="3" max="100" min="0" />
         </div>
       </form>`);
     i += 1;
