@@ -111,7 +111,7 @@ const initBackgrounds = (background, color) => {
   for (let i = 0; i <= 20; i += 1) {
     $('.backgrounds').append(`<div class="bg bg-${i}">
         <div class="bg-inner" style="background-color: hsl(${color.h}, ${color.s}%, ${color.l}%);
-             background-image: url(images/bg-${i}.png)"></div></div>
+             background-image: url(images/bg-${i}.png)"></div>
       </div>`);
   }
   $('.bg').eq(background).addClass('active');
