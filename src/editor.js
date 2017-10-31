@@ -40,7 +40,6 @@ const setHSLSliderSet = (color, $target, source) => {
     hsl(${color.h}, ${color.s}%, ${color.l}%)`);
   if (typeof $a === 'undefined') {
     const alpha = color.a * 0.01;
-    console.log($a === false)
     $target.css('border-top', `3px solid hsla(${color.h},${color.s}%,${color.l}%, ${alpha})`);
   } else {
     $target.css('border-top', `3px solid hsl(${color.h},${color.s}%,${color.l}%)`);

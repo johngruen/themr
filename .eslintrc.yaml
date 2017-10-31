@@ -5,8 +5,8 @@ env:
   webextensions: true
 
 extends:
-- eslint:recommended
-- airbnb-base
+  - eslint:recommended
+  - airbnb-base
 
 parserOptions:
   ecmaVersion: 6
