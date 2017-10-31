@@ -11,13 +11,16 @@
     "photon-colors": "^1.3.0"
   },
   "devDependencies": {
-    "eslint": "^4.9.0",
+    "eslint": "^4.10.0",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0"
+    "eslint-plugin-import": "^2.8.0",
+    "web-ext": "^2.2.2"
   },
   "scripts": {
     "lib": "rm -rf src/lib && mkdir src/lib && cp node_modules/jquery/dist/jquery.min.js src/lib/jquery.min.js && cp node_modules/photon-colors/colors.css src/lib/colors.css",
-    "build": "web-ext build -s src",
+    "lint": "eslint src",
+    "prebuild": "npm run lib",
+    "build": "web-ext build -s src --overwrite-dest",
     "demo": "web-ext run -s src"
   }
 }

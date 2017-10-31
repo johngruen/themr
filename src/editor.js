@@ -40,7 +40,6 @@ const setHSLSliderSet = (color, $target, source) => {
     hsl(${color.h}, ${color.s}%, ${color.l}%)`);
   if (typeof $a === 'undefined') {
     const alpha = color.a * 0.01;
-    console.log($a === false)
     $target.css('border-top', `3px solid hsla(${color.h},${color.s}%,${color.l}%, ${alpha})`);
   } else {
     $target.css('border-top', `3px solid hsl(${color.h},${color.s}%,${color.l}%)`);
@@ -82,12 +81,12 @@ const initColors = (colors) => {
         <label>saturation</label>
         <div>
           <input type='range' min='0' max='100' class='s' value=${color.s} tabIndex='-1'/>
-          <input type='number' value=${color.s} class='s-text' maxlength="3" max="360" min="0" />
+          <input type='number' value=${color.s} class='s-text' maxlength="3" max="100" min="0" />
         </div>
         <label>lightness</label>
         <div>
           <input type='range' min='0' max='100' class='l' value=${color.l} tabIndex='-1'/>
-          <input type='number' value=${color.l} class='l-text' maxlength="3" max="360" min="0" />
+          <input type='number' value=${color.l} class='l-text' maxlength="3" max="100" min="0" />
         </div>
       </form>`);
     i += 1;
@@ -112,7 +111,7 @@ const initBackgrounds = (background, color) => {
   for (let i = 0; i <= 20; i += 1) {
     $('.backgrounds').append(`<div class="bg bg-${i}">
         <div class="bg-inner" style="background-color: hsl(${color.h}, ${color.s}%, ${color.l}%);
-             background-image: url(images/bg-${i}.png)"></div></div>
+             background-image: url(images/bg-${i}.png)"></div>
       </div>`);
   }
   $('.bg').eq(background).addClass('active');
